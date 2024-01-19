@@ -1,14 +1,69 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js')
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {
+        type: 'input',
+        message: 'Please enter the title of your project.',
+        name: 'title',
+    },
+
+    {
+        type: 'input',
+        message: 'Please enter a description of your project.',
+        name: 'description',
+    },
+    {
+        type: 'input',
+        message: 'Please enter installations instuctions.',
+        name: 'installationInstructions',
+    },
+    {
+        type: 'input',
+        message: 'Please enter usage information.',
+        name: 'usageInformation',
+    },
+    {
+        type: 'input',
+        message: 'Please enter the contribution guidelines.',
+        name: 'contributionGuidelines',
+    },
+    {
+        type: 'input',
+        message: 'Please enter the test instructions.',
+        name: 'testInstructions',
+    },
+    {
+        type: 'list',
+        message: 'Which license would you like to add?',
+        name: 'license',
+        choices: ['Phone', 'Email', 'Text']//need license types
+    },
+    {
+        type: 'input',
+        message: 'Please enter your GitHub name.',
+        name: 'githubName',
+    },
+    {
+        type: 'input',
+        message: 'Please enter your email address.',
+        name: 'email',
+    }
+];
+
+//   Example of using async/await with inquirer
+async function askForName() {
+    const { username } = await inquirer.prompt([questions])
+    askForLocation({ username })
+}
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() { }
 
 // Function call to initialize app
 init();
