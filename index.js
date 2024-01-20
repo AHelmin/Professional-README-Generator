@@ -39,7 +39,7 @@ const questions = [
         type: 'list',
         message: 'Which license would you like to add?',
         name: 'license',
-        choices: ['Phone', 'Email', 'Text']//need license types
+        choices: ['MIT License', 'Apache License 2.0', 'GNU GPL v3','Mozilla Public License 2.0','BSD 3-Clause License']
     },
     {
         type: 'input',
@@ -54,16 +54,24 @@ const questions = [
 ];
 
 //   Example of using async/await with inquirer
-async function askForName() {
-    const { username } = await inquirer.prompt([questions])
-    askForLocation({ username })
+async function readmeDetails() {
+    const data = await inquirer.prompt(questions)
+    console.log(data);
+    const genReadme = generateMarkdown(data);
+    writeToFile('README.md', genReadme);
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) { 
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error(err) : console.log('Success!')
+    )
+}
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    readmeDetails();
+}
 
 // Function call to initialize app
 init();
