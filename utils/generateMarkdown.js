@@ -2,7 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(data) {
   let licenseBadge;
-  if (data.license === 'MIT License'){
+  if (data.license === 'MIT License') {
     licenseBadge = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
   } else if (data.license === 'Apache License 2.0') {
     licenseBadge = '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
@@ -17,12 +17,12 @@ function renderLicenseBadge(data) {
   }
   return licenseBadge
 }
-'MIT License', 'Apache License 2.0', 'GNU GPL v3','Mozilla Public License 2.0','BSD 3-Clause License'
+'MIT License', 'Apache License 2.0', 'GNU GPL v3', 'Mozilla Public License 2.0', 'BSD 3-Clause License'
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(data) {
   let licenseLink;
-  if (data.license === 'MIT License'){
+  if (data.license === 'MIT License') {
     licenseLink = 'https://opensource.org/licenses/MIT'
   } else if (data.license === 'Apache License 2.0') {
     licenseLink = 'https://opensource.org/licenses/Apache-2.0'
@@ -41,7 +41,7 @@ function renderLicenseLink(data) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) { }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -57,7 +57,7 @@ function generateMarkdown(data) {
 
   ## Description
   
-${data.description}
+  ${data.description}
     
   ## Table of Contents
   
@@ -93,6 +93,8 @@ ${data.description}
   If you followed tutorials, include links to those here as well.
   
   ## License
+
+  ${data.license}
   
   ${licenseLink}
   
@@ -107,7 +109,7 @@ ${data.description}
   
   
 `
-//call generate liscense stuff here
+  //call generate liscense stuff here
 };
 
 module.exports = generateMarkdown;
