@@ -1,42 +1,42 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(data) {
-  let licenseBadge;
-  if (data.license === 'MIT License') {
-    licenseBadge = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
-  } else if (data.license === 'Apache License 2.0') {
-    licenseBadge = '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
-  } else if (data.license === 'GNU GPL v3') {
-    licenseBadge = '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)'
-  } else if (data.license === 'Mozilla Public License 2.0') {
-    licenseBadge = '![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)'
-  } else if (data.license === 'BSD 3-Clause License') {
-    licenseBadge = '![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)'
-  } else {
-    licenseBadge = ''
+  let badge;
+  const licenses = {
+    'MIT License': '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
+    'Apache License 2.0': '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)',
+    'GNU GPL v3': '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)',
+    'Mozilla Public License 2.0': '![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)',
+    'BSD 3-Clause License': '![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)'
   }
-  return licenseBadge
-}
-'MIT License', 'Apache License 2.0', 'GNU GPL v3', 'Mozilla Public License 2.0', 'BSD 3-Clause License'
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+  if (licenses[data.license]) {
+    badge = licenses[data.license];
+  } else {
+    badge = '';
+  }
+  return badge;
+};
+
 function renderLicenseLink(data) {
   let licenseLink;
-  if (data.license === 'MIT License') {
-    licenseLink = 'https://opensource.org/licenses/MIT'
-  } else if (data.license === 'Apache License 2.0') {
-    licenseLink = 'https://opensource.org/licenses/Apache-2.0'
-  } else if (data.license === 'GNU GPL v3') {
-    licenseLink = 'https://www.gnu.org/licenses/gpl-3.0'
-  } else if (data.license === 'Mozilla Public License 2.0') {
-    licenseLink = 'https://opensource.org/licenses/MPL-2.0'
-  } else if (data.license === 'BSD 3-Clause License') {
-    licenseLink = 'https://opensource.org/licenses/BSD-3-Clause'
-  } else {
-    licenseLink = ''
+  const links = {
+    'MIT License': 'https://opensource.org/licenses/MIT',
+    'Apache License 2.0': 'https://opensource.org/licenses/Apache-2.0',
+    'GNU GPL v3': 'https://www.gnu.org/licenses/gpl-3.0',
+    'Mozilla Public License 2.0': 'https://opensource.org/licenses/MPL-2.0',
+    'BSD 3-Clause License': 'https://opensource.org/licenses/BSD-3-Clause'
   }
-  return licenseLink
-}
+  if (links[data.license]) {
+    licenseLink = links[data.license];
+  } else {
+    licenseLink = '';
+  }
+  return licenseLink;
+};
+
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+
 
 
 // TODO: Create a function that returns the license section of README
@@ -83,14 +83,6 @@ function generateMarkdown(data) {
   ## Tests
   
   ${data.testInstructions}
-    
-  ## Credits
-  
-  List your collaborators, if any, with links to their GitHub profiles.
-  
-  If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-  
-  If you followed tutorials, include links to those here as well.
   
   ## License
 

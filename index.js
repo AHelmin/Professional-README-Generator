@@ -1,8 +1,8 @@
-// TODO: Include packages needed for this application
+//Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js')
-// TODO: Create an array of questions for user input
+const generateMarkdown = require('./utils/generateMarkdown.js');
+//Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -55,7 +55,7 @@ const questions = [
 
 //   Example of using async/await with inquirer
 async function readmeDetails() {
-    const data = await inquirer.prompt(questions)
+    const data = await inquirer.prompt(questions);
     console.log(data);
     const genReadme = generateMarkdown(data);
     writeToFile('README.md', genReadme);
