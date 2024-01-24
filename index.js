@@ -53,27 +53,26 @@ const questions = [
     }
 ];
 
-//   Example of using async/await with inquirer
+//Function runs the question prompt
 async function readmeDetails() {
     const data = await inquirer.prompt(questions);
-    console.log(data);
     const genReadme = generateMarkdown(data);
-    writeToFile('README.md', genReadme);
-}
+    writeToFile('./README-Sample/README.md', genReadme);
+};
 
-// TODO: Create a function to write README file
+//function writes README file
 function writeToFile(fileName, data) { 
     fs.writeFile(fileName, data, (err) =>
         err ? console.error(err) : console.log('Success!')
     )
-}
+};
 
-// TODO: Create a function to initialize app
+//function initializes app
 function init() {
     readmeDetails();
-}
+};
 
-// Function call to initialize app
+// Function call initializes app
 init();
 
 

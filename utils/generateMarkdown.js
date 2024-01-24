@@ -1,6 +1,7 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//saves today's date to today variable
 const today = new Date();
+
+//returns url to image for each selected license
 function renderLicenseBadge(data) {
   let badge;
   const licenses = {
@@ -18,6 +19,7 @@ function renderLicenseBadge(data) {
   return badge;
 };
 
+//returns url to documentation for each selected license
 function renderLicenseLink(data) {
   let licenseLink;
   const links = {
@@ -35,6 +37,7 @@ function renderLicenseLink(data) {
   return licenseLink;
 };
 
+//returns license notices for each selected license
 function renderLicenseText(data) {
   let licenseText;
   const text = {
@@ -61,15 +64,15 @@ function renderLicenseText(data) {
     'Apache License 2.0': `Copyright ${today.getFullYear()} ${data.githubName}
     
     Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-   
-   You may obtain a copy of the License at`,
+    you may not use this file except in compliance with the License.
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    
+    You may obtain a copy of the License at`,
     'GNU GPL v3': `Copyright (C) ${today.getFullYear()} ${data.githubName}
     
     This program is free software: you can redistribute it and/or modify
@@ -89,6 +92,7 @@ function renderLicenseText(data) {
     This Source Code Form is subject to the terms of the Mozilla Public License, 
     v. 2.0. If a copy of the MPL was not distributed with this file, You can 
     obtain one at https://mozilla.org/MPL/2.0/.`,
+
     'BSD 3-Clause License': `Copyright ${today.getFullYear()} ${data.githubName}
     
     Redistribution and use in source and binary forms, with or without 
@@ -117,30 +121,18 @@ function renderLicenseText(data) {
     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
   }
   if (data.license) {
-    licenseLink = text[data.license];
+    licenseText = text[data.license];
   } else {
-    licenseLink = '';
+    licenseText = '';
   }
   return licenseText
 };
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 
-
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) { }
-
-// TODO: Create a function to generate markdown for README
+//Function takes in data and generates markdown for README
 function generateMarkdown(data) {
-  //TODO 
-  //GRAB THE LICENSE DATA AND SEND IT THROUGH THESE FUNCTIONS
-  //FINISH THE FUNCTIONS
   const licenseBadge = renderLicenseBadge(data);
   const licenseLink = renderLicenseLink(data);
   const licenseText = renderLicenseText(data);
-  // renderLicenseSection(data) 
   return `
   ${licenseBadge}
   # ${data.title}
@@ -189,11 +181,7 @@ function generateMarkdown(data) {
   github.com/${data.githubName}
 
   Please direct questions to my email: ${data.email}
-  
-  
-  
-`
-  //call generate liscense stuff here
+  `
 };
 
 module.exports = generateMarkdown;
