@@ -24,7 +24,7 @@ To select a license use the arrow keys to select the desired license and press e
 
 ![License List](./assets/images/License_List.png)
 
-The resulting README can be found in the README-Sample folder. Additionally, a video demonstration can be found in the video folder within the assets.
+The resulting README can be found in the README-Sample folder. Additionally, a video demonstration can be found at this link: https://drive.google.com/file/d/1XhpPtdS6E2QxXBsLqnEuYCeldXy_0y0q/view.
 
 ## Credits
 
